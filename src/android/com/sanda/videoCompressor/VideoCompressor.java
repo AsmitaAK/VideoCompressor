@@ -15,13 +15,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.netcompss.ffmpeg4android_client.BaseWizard;
+import com.netcompss.ffmpeg4android_client.Prefs;
+
 
 
 public class VideoCompressor extends CordovaPlugin  {
 	
   private static final String ACTION_START_EVENT = "start";
   private static final String ACTION_SHOW_EVENT = "show";
-
+ private BaseWizard baseWizard;
 
 public static CallbackContext callback;
 
@@ -35,36 +38,37 @@ public static CallbackContext callback;
 		//Intent i = new Intent(context,DemoClient.class);
 		String[] commandComplex = {"ffmpeg","-y" ,"-i", "/storage/sdcard0/videos/Other/VID-20130625-WA0002.3gp","-strict","experimental","-s", "160x120","-r","25", "-vcodec", "mpeg4", "-b", "150k", "-ab","48000", "-ac", "2", "-ar", "22050", "/storage/sdcard0/Ngage/Video/outgp.3gp"};
 					Log.e("Complex command", commandComplex.toString());
-					
-					setCommandComplex(commandComplex);
-					setOutputFilePath("/storage/sdcard0/Ngage/Video/outgp.3gp");
-					setProgressDialogTitle("Compressing " + "Video"
+					baseWizard = new BaseWizard();
+					baseWizard.setCommandComplex(commandComplex);
+					baseWizard.setOutputFilePath("/storage/sdcard0/Ngage/Video/outgp.3gp");
+					baseWizard.setProgressDialogTitle("Compressing " + "Video"
 							+ ", Please wait...");
-					setProgressDialogMessage("Depends on your " + "Video"
+					baseWizard.setProgressDialogMessage("Depends on your " + "Video"
 							+ " size, it can take a few minutes");
 
-							setProgressDialogTitle("Exporting As MP4 Video");
-					setProgressDialogMessage("Depends on your video size, it can take a few minutes");
-					setNotificationIcon(R.drawable.icon2);
-					setNotificationMessage("Demo is running...");
-					setNotificationTitle("Demo Client");
-					setNotificationfinishedMessageTitle("Demo Transcoding finished");
-					setNotificationfinishedMessageDesc("Click to play demo");
-					setNotificationStoppedMessage("Demo Transcoding stopped");
+					baseWizard.setProgressDialogTitle("Exporting As MP4 Video");
+					baseWizard.setProgressDialogMessage("Depends on your video size, it can take a few minutes");
+					//setNotificationIcon(R.drawable.icon2);
+					baseWizard.setNotificationMessage("Demo is running...");
+					baseWizard.setNotificationTitle("Demo Client");
+					baseWizard.setNotificationfinishedMessageTitle("Demo Transcoding finished");
+					baseWizard.setNotificationfinishedMessageDesc("Click to play demo");
+					baseWizard.setNotificationStoppedMessage("Demo Transcoding stopped");
 					///////////////
 
 					Log.i(Prefs.TAG, "ffmpeg4android library version: " + Prefs.getLibraryVersionName());
-					runTranscoing();
+					baseWizard.runTranscoing();
 
 		}
 	});
   }else   if (ACTION_SHOW_EVENT.equals(action)) {
-	  startAct(com.netcompss.ffmpeg4android_client.ShowFileAct.class);		
+	  baseWizard.startAct(com.netcompss.ffmpeg4android_client.ShowFileAct.class);		
     }
   else {
       callbackContext.error("Recording." + action + " is not a supported function. Did you mean '" + ACTION_SHOW_EVENT + "'?");
       return false;
     }
+	return false;
 
-
+  }
 }
