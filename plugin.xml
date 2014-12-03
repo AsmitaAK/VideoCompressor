@@ -1,0 +1,66 @@
+	<?xml version="1.0" encoding="UTF-8"?>
+	<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			id="com.sanda.plugins.WatermarkDetector"
+			version="0.0.5">
+
+	  <name>VideoCompressor</name>
+
+	  <description>
+		VideoCompressor Plugin 
+	  </description>
+
+	  <license>Sanda</license>
+
+	  <engines>
+		<engine name="cordova" version=">=3.0.0"/>
+	  </engines>
+
+	  <js-module src="www/VideoCompressor.js" name="VideoCompressor">
+		<clobbers target="window.plugins.VideoCompressor" />
+	  </js-module>
+
+	 
+	  <!-- android -->
+	  <platform name="android">
+
+		<config-file target="res/xml/config.xml" parent="/*">
+		  <feature name="VideoCompressor">
+			<param name="android-package" value="com.sanda.plugins.WatermarkDetector.WatermarkDetector" />
+		  </feature>
+		</config-file>
+
+		<source-file src="src/android/com/sanda/videoCompressor/VideoCompressor.java" target-dir="src/com/sanda/videoCompressor"/>
+		 
+				
+				 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+				 <uses-permission android:name="android.permission.WAKE_LOCK" /> 
+			</config-file>
+
+			<config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+                    android:name="com.sanda.videoCompressor.VideoCompressor.java"
+                    android:finishOnTaskLaunch="true"
+                    android:launchMode="singleInstance"
+                    android:noHistory="true"
+                    >
+                <intent-filter>
+                    
+                </intent-filter>
+               
+            </activity>
+			
+			<service android:name="com.netcompss.ffmpeg4android.FFMpegRemoteServiceBridge" 
+        		 android:process=":remote"
+        		 android:exported="true">
+               <intent-filter><action android:name="com.netcompss.ffmpeg4android.FFMpegRemoteServiceBridge"></action></intent-filter> 
+        </service>
+
+        </config-file>
+
+	 <source-file src="libs/ffmpeg4android_os-6dbdd9adb6c16c49056c35ebdf5923bc.jar" target-dir="libs"/>
+	 <source-file src="libs/ffmpeg4android_os-f957dbd225ec8bacbcded32e9ab4281c.jar" target-dir="libs"/>
+
+	  </platform>
+
+	</plugin>
