@@ -35,8 +35,7 @@
 				
 				 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 				 <uses-permission android:name="android.permission.WAKE_LOCK" /> 
-			</config-file>
-
+			
 			<config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity
                     android:name="com.sanda.videoCompressor.VideoCompressor.java"
