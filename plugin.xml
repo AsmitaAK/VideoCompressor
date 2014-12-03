@@ -57,9 +57,8 @@
 
         </config-file>
 
-	 <source-file src="libs/ffmpeg4android_os-6dbdd9adb6c16c49056c35ebdf5923bc.jar" target-dir="libs"/>
-	 <source-file src="libs/ffmpeg4android_os-f957dbd225ec8bacbcded32e9ab4281c.jar" target-dir="libs"/>
-
+	 <source-file src="libs/ffmpeg4android_os.jar" target-dir="Android Dependencies"/>
+	 
 	  </platform>
 
 	</plugin>
