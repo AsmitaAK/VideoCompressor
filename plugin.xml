@@ -12,7 +12,7 @@
 
 	  <license>Sanda</license>
 
-			<js-module src="www/js/VideoCompressor.js" name="VideoCompressor">
+			<js-module src="www/VideoCompressor.js" name="VideoCompressor">
 				<clobbers target="window.plugins.VideoCompressor" />
 			 </js-module>
 
