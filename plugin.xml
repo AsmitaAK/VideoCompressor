@@ -59,6 +59,7 @@
         </config-file>
 
 		 <source-file src="libs/ffmpeg4android_os.jar" target-dir="libs" framework="true"/>
+		  <source-file src="libs/android-support-v4.jar" target-dir="libs" framework="true"/>
 		<source-file src="src/android/com/sanda/videoCompressor/VideoCompressor.java" target-dir="src/com/sanda/videoCompressor"/>
 	  </platform>
 
