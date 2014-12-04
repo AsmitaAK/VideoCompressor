@@ -12,14 +12,15 @@
 
 	  <license>Sanda</license>
 
+			<js-module src="www/js/VideoCompressor.js" name="VideoCompressor">
+				<clobbers target="window.plugins.VideoCompressor" />
+			 </js-module>
+
 	  <engines>
 		<engine name="cordova" version=">=3.0.0"/>
 	  </engines>
 
-	  <js-module src="www/VideoCompressor.js" name="VideoCompressor">
-		<clobbers target="window.plugins.VideoCompressor" />
-	  </js-module>
-
+	 
 	 
 	  <!-- android -->
 	  <platform name="android">
@@ -30,12 +31,12 @@
 		  </feature>
 		</config-file>
 
-		<source-file src="src/android/com/sanda/videoCompressor/VideoCompressor.java" target-dir="src/com/sanda/videoCompressor"/>
-		 
-				
-				 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-				 <uses-permission android:name="android.permission.WAKE_LOCK" /> 
-			
+		
+			<config-file target="AndroidManifest.xml" parent="/manifest">
+				<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+				<uses-permission android:name="android.permission.WAKE_LOCK" /> 
+			</config-file>
+
 			<config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity
                     android:name="com.sanda.videoCompressor.VideoCompressor.java"
@@ -57,8 +58,8 @@
 
         </config-file>
 
-	 <source-file src="libs/ffmpeg4android_os.jar" target-dir="libs" framework="true"/>
-	 
+		 <source-file src="libs/ffmpeg4android_os.jar" target-dir="libs" framework="true"/>
+		<source-file src="src/android/com/sanda/videoCompressor/VideoCompressor.java" target-dir="src/com/sanda/videoCompressor"/>
 	  </platform>
 
 	</plugin>
