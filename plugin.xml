@@ -39,7 +39,7 @@
 
 			<config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity
-                    android:name="com.sanda.videoCompressor.VideoCompressor.java"
+                    android:name="com.sanda.videoCompressor.VideoCompressor"
                     android:finishOnTaskLaunch="true"
                     android:launchMode="singleInstance"
                     android:noHistory="true"
