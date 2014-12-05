@@ -1,27 +1,28 @@
 package com.sanda.plugins.VideoCompressor;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+//import android.content.BroadcastReceiver;
+//import android.content.Context;
+//import android.content.Intent;
+//import android.content.IntentFilter;
 import android.util.Log;
-import android.view.Gravity;
+//import android.view.Gravity;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.LOG;
-import org.apache.cordova.PluginResult;
+//import org.apache.cordova.LOG;
+//import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-
+//import org.json.JSONObject;
+import com.netcompss.ffmpeg4android_client.BaseWizard;
+import com.netcompss.ffmpeg4android_client.Prefs;
 
 
 public class VideoCompressor extends CordovaPlugin  {
 	
 
   private static final String ACTION_SHOW_EVENT = "start";
-
+  private BaseWizard baseWizard;
 
 public static CallbackContext callback;
 
