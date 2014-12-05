@@ -1,4 +1,4 @@
-cordova.define("com.sanda.plugins.WatermarkDetector.WatermarkDetector", function(require, exports, module) { var exec = require('cordova/exec');
+cordova.define("com.sanda.plugins.VideoCompressor.VideoCompressor", function(require, exports, module) { var exec = require('cordova/exec');
 
 module.exports = {
 

@@ -1,4 +1,4 @@
-package com.sanda.plugins.WatermarkDetector;
+package com.sanda.plugins.VideoCompressor;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,11 +17,8 @@ import org.json.JSONObject;
 
 
 
-public class WatermarkDetector extends CordovaPlugin  {
-	CodeReceiver code;
-	public WatermarkDetector(){
-	 code = new CodeReceiver();
-	}
+public class VideoCompressor extends CordovaPlugin  {
+	
 
   private static final String ACTION_SHOW_EVENT = "start";
 
