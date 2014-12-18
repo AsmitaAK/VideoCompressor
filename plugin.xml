@@ -1,7 +1,7 @@
 	<?xml version="1.0" encoding="UTF-8"?>
 	<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 			xmlns:android="http://schemas.android.com/apk/res/android"
-			id="com.sanda.plugins.VideoCompressor"
+			id="com.video.compressor"
 			version="0.0.1">
 
 	  <name>VideoCompressor</name>
@@ -11,7 +11,6 @@
 	  </description>
 
 	  <license>Sanda</license>
-
 		
 
 	  <engines>
@@ -19,7 +18,7 @@
 	  </engines>
 
 		<js-module src="www/VideoCompressor.js" name="VideoCompressor">
-				<clobbers target="window.plugins.VideoCompressor" />
+				<clobbers target="window.plugins.videoCompressor" />
 			 </js-module>
 	 
 	 
@@ -28,35 +27,21 @@
 
 		<config-file target="res/xml/config.xml" parent="/*">
 		  <feature name="VideoCompressor">
-			<param name="android-package" value="com.sanda.plugins.VideoCompressor.VideoCompressor" />
+			<param name="android-package" value="com.video.compressor.VideoCompressor" />
 		  </feature>
 		</config-file>
-
-		<source-file src="src/android/com/sanda/plugins/VideoCompressor/VideoCompressor.java" target-dir="src/com/sanda/plugins/VideoCompressor"/>
+	
 			<config-file target="AndroidManifest.xml" parent="/manifest">
 				<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 				<uses-permission android:name="android.permission.WAKE_LOCK" /> 
 			</config-file>
-
-			<config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity
-                    android:name="com.sanda.plugins.VideoCompressor.VideoCompressor"
-                    android:finishOnTaskLaunch="true"
-                    android:launchMode="singleInstance"
-                    android:noHistory="true"
-                    >
-                <intent-filter>
-                    
-                </intent-filter>
-               
-            </activity>
+		
+          
 			
-
-        </config-file>
-
+	
+	<source-file src="src/android/com/video/compressor/VideoCompressor.java" target-dir="src/com/video/compressor"/>
 		 <source-file src="libs/ffmpeg4android_os.jar" target-dir="libs" framework="true"/>
 		  <source-file src="libs/android-support-v4.jar" target-dir="libs" framework="true"/>
 		
 	  </platform>
-
 	</plugin>
